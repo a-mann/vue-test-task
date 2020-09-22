@@ -8,7 +8,7 @@
 <script>
 export default {
   name: 'app',
-  data () {
+  data () { // зачем data если в ней ничего нет и никак не испльзуется
     return {
     }
   },
@@ -18,7 +18,7 @@ export default {
 <style lang="scss">
   @import "assets/resetCSS.scss";
   body{
-    font-family: Arial;
+    font-family: Arial; // на случай если в системе нет шрифта Arial хорошо указвать хотя бы семейство шрифтов
     letter-spacing: 2px;
   }
 </style>

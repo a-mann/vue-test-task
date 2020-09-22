@@ -109,7 +109,7 @@ export default {
           })
 
       this.sortMinToMax[key] = !this.sortMinToMax[key];
-      this.$store.commit("rewriteObj", sortingTable)
+      this.$store.commit("rewriteObj", sortingTable) // в консоли unknown mutation type: rewriteObj, потому что здесь опечатка -> rewriteObject
     },
 
     nextPage() {

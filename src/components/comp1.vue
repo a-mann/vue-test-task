@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <form class="comp-1-container">
+      <!-- для заголовков используется элементы h1, h2 ... --> 
       <p id="article">ЗАЯВКА НА УЧАСТИЕ В ЗАБЕГЕ</p>
       <div>
+        <!-- а для имен полей в формах используется label -->
         <p>ФИО</p>
         <input placeholder="ФИО" v-model="name"/>
       </div>
@@ -38,7 +40,7 @@
 
 <script>
 export default {
-  name: 'app',
+  name: 'app', // у всех комопнентов одинаковое имя - app - из-за этого не удобно искать его в DevTools. Даже когда всего 3 компонента
   data () {
     return {
       name: "",
@@ -53,7 +55,7 @@ export default {
 
   mounted() {
     this.isEmailWalid = true;
-    let telInput =  $('#tel-input');
+    let telInput =  $('#tel-input'); // вот это в vue компоненте выглядит мягко говоря странно. Не правильно так делать.
     let contributionInput =  $('#contribution');
     let emailInput =  $('#email-input');
 
@@ -61,7 +63,7 @@ export default {
     telInput.on('blur', () => {this.phone = telInput.val()})
 
     contributionInput.on('input', () => {
-      let finLabel = ", руб.";
+      let finLabel = ", руб."; // это константа, не меняется. А тут она совершенно напрасно создается каждый раз заново при вызове функции
       let value = contributionInput.val();
       let val = value.substr(0,value.indexOf(","));
 
@@ -75,8 +77,8 @@ export default {
       this.payment = value + finLabel;
       contributionInput.val(value + finLabel);
     })
-
-    contributionInput.on("focus", () => {contributionInput.val(", руб.")})
+    // я захотел изменить число, поставил курсор в поле и все, придется вводить заново полностью т.к. поле очистилось
+    contributionInput.on("focus", () => {contributionInput.val(", руб.")}) 
 
     emailInput.on('blur', () => {
       let val = emailInput.val();
